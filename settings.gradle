@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "GetRange"
 include ':app'
+include ':Booyah'
