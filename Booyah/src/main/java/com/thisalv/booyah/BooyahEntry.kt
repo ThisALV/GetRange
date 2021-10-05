@@ -10,7 +10,16 @@ import java.security.InvalidParameterException
  *
  * @author ThisALV, https://github.com/ThisALV/
  */
-data class Escape(val fromPercentage: Int, val move: String? = null)
+class Escape(val fromPercentage: Int, val move: String? = null) {
+    /**
+     * @param rageLvl Inkling rage effect, will subtract % modificator to escape move required
+     * percentage, as rage only increases knockback
+     *
+     * @return An new escape with min % adjusted for current Inkling rage effect
+     */
+    fun withRage(rageLvl: RageEffect) =
+        Escape(fromPercentage - rageLvl.percentageModificator, move)
+}
 
 /**
  * Contains ranges percentages for a specific Booyah character and calculates min/max percentages
@@ -43,7 +52,7 @@ class BooyahEntry private constructor(
      * @throws InvalidParameterException if `0 <= min <= max` isn't respected
      */
     constructor(min: Int, max: Int, escape: Escape? = null):
-            this(Range(min, max), null, escape) {}
+            this(Range(min, max), null, escape) // Range ctor check min and max validity
 
     /**
      * Builds range with given `min` and `max` percentages, and builds a second range with
@@ -52,32 +61,36 @@ class BooyahEntry private constructor(
      * @throws InvalidParameterException if `0 <= min <= max < secondMin <= secondMax` isn't
      * respected
      */
-    constructor(min: Int, max: Int, secondMin: Int, secondMax: Int, escape: Escape?) :
-            this(Range(min, max), Range(secondMin, secondMax), escape) {}
+    constructor(
+        min: Int, max: Int, secondMin: Int, secondMax: Int, escape: Escape?
+    ) : this(Range(min, max), Range(secondMin, secondMax), escape) {
+        // min/max and secondMin/secondMax validity checks are delegated to the Range ctor
+        // Here we only need to check for consistency between the two ranges border
+        if (secondMin <= max)
+            throw InvalidParameterException("secondMin must be greater than max")
+    }
 
     /**
      * Applies `withRage()` for both ranges and escape min % if any then retrieves new instance with
      * updated ones.
      */
-    fun withRage(rageLvl: RageEffect): BooyahEntry {
-        throw NotImplementedError()
-    }
+    fun withRage(rageLvl: RageEffect) = BooyahEntry(
+        firstRange.withRage(rageLvl), secondRange?.withRage(rageLvl), escape?.withRage(rageLvl)
+    )
 
     /**
-     * @param percentsBonus +/- required percentage for the Booyah to kill on the top blastzone,
+     * @param minPercentageMalus +/- required percentage for the Booyah to kill on the top blastzone,
      * applies only to the 1st range min % value
      *
      * @return A new Booyah range for this context
      */
-    fun withStage(percentsBonus: Int): Range {
-        throw NotImplementedError()
-    }
+    fun withStage(minPercentageMalus: Int) =
+        BooyahEntry(Range(firstRange.min + minPercentageMalus, firstRange.max), secondRange, escape)
 
     /**
      * Applies `withRage()` for both ranges and escape min % if any then retrieves new instance with
      * updated ones.
      */
-    fun withInk(inkCoverage: InkRate): BooyahEntry {
-        throw NotImplementedError()
-    }
+    fun withInk(inkCoverage: InkRate) =
+        BooyahEntry(firstRange.withInk(inkCoverage), secondRange?.withInk(inkCoverage), escape)
 }
