@@ -62,15 +62,6 @@ class Range {
     }
 
     /**
-     * @param percentsBonus +/- required percentage for the Booyah to kill on the top blastzone
-     *
-     * @return A new Booyah range for this context
-     */
-    fun withStage(percentsBonus: Int): Range {
-        throw NotImplementedError()
-    }
-
-    /**
      * Inkling's ink affects knockback AND hitstun because Booyah is a combo (multi-hits) and ink
      * modifies damage output.
      *

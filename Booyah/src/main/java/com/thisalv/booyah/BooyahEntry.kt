@@ -47,9 +47,12 @@ class BooyahEntry private constructor(firstRange: Range, secondRange: Range? = n
     }
 
     /**
-     * Applies `withStage()` for both ranges and new instance with updated ones.
+     * @param percentsBonus +/- required percentage for the Booyah to kill on the top blastzone,
+     * applies only to the 1st range min % value
+     *
+     * @return A new Booyah range for this context
      */
-    fun withStage(percentsBonus: Int): BooyahEntry {
+    fun withStage(percentsBonus: Int): Range {
         throw NotImplementedError()
     }
 
