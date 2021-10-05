@@ -3,8 +3,8 @@ package com.thisalv.booyah
 import java.io.InputStream
 
 /**
- * @param id Used to identify the stage for which this min % bonus is applying
- * @param booyahPercentageBonus Will be added to min % of a booyah
+ * @property id Used to identify the stage for which this min % bonus is applying
+ * @property booyahPercentageBonus Will be added to min % of a booyah
  *
  * @author ThisALV, https://github.com/ThisALV/
  */

@@ -5,9 +5,9 @@ import java.io.InputStream
 /**
  * Contains every data required to describe an Inkling opponent character details useful for the MU.
  *
- * @param id Used to identify which character is detailed here
- * @param booyahData Details about Booyah kill range for this opponent
- * @param canUsmashBurried If `true` the Usmash pop up this opponent from ground after roller and
+ * @property id Used to identify which character is detailed here
+ * @property booyahData Details about Booyah kill range for this opponent
+ * @property canUsmashBurried If `true` the Usmash pop up this opponent from ground after roller and
  * therefore can kill when side B hits, otherwise, the opponent will stay burried and will be hit
  * by the sourspot
  *
