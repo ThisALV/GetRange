@@ -63,9 +63,8 @@ class Range(min: Int, max: Int) {
      *
      * @return A new Booyah range for this context
      */
-    fun withRage(rage: RageEffect) {
+    fun withRage(rage: RageEffect) =
         Range(min - rage.percentageModificator, max - rage.percentageModificator)
-    }
 
     /**
      * Inkling's ink affects knockback AND hitstun because Booyah is a combo (multi-hits) and ink
@@ -75,7 +74,5 @@ class Range(min: Int, max: Int) {
      *
      * @return A new Booyah range for this context
      */
-    fun withInk(inkCoverage: InkRate) {
-        Range(min - inkCoverage.percentageModificator, max)
-    }
+    fun withInk(inkCoverage: InkRate) = Range(min - inkCoverage.percentageModificator, max)
 }
