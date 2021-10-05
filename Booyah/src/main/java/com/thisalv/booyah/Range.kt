@@ -3,27 +3,30 @@ package com.thisalv.booyah
 import java.security.InvalidParameterException
 
 /**
- * Designates each rage effect level associated with its % for which we know the Booyah range
- * modificator.
+ * Designates each rage effect known % associated with its % modificator.
+ *
+ * @property percentageModificator % to subtract to every min/max/escape % on a `BooyahEntry`
  *
  * @author ThisALV, https://github.com/ThisALV/
  */
-enum class RageEffect(val percents: Int) {
-    NONE(0),
-    LOW(50),
-    AVERAGE(100),
-    HIGH(150)
+enum class RageEffect(val percentageModificator: Int) {
+    PERCENTS_0(0),
+    PERCENTS_50(3),
+    PERCENTS_100(12),
+    PERCENTS_150(22)
 }
 
 /**
  * Designates Inkling opponent ink-covered rate. Opponent is ink-covered by Inkling's special moves.
  *
+ * @property percentageModificator % to substract to min % on a `BooyahEntry`
+ *
  * @author ThisALV, https://github.com/ThisALV/
  */
-enum class InkRate {
-    NONE,
-    HALF,
-    FULL
+enum class InkRate(val percentageModificator: Int) {
+    NONE(0),
+    HALF(2),
+    FULL(5)
 }
 
 /**
@@ -34,32 +37,34 @@ enum class InkRate {
  * @property max Maximum % for Booyah to connect
  *
  * @constructor Builds valid range with given min and max percentages
+ * @throws InvalidParameterException if `0 <= min <= max` isn't respected
  *
  * @author ThisALV, https://github.com/ThisALV/
  */
-class Range {
-    var min: Int = 0
+class Range(min: Int, max: Int) {
+    var min: Int = min
         private set
 
-    var max: Int = 0
+    var max: Int = max
         private set
 
-    /**
-     * @throws InvalidParameterException if `0 <= min <= max` isn't respected
-     */
-    constructor(min: Int, max: Int) {}
+    init {
+        if (min < 0)
+            throw InvalidParameterException("min must be positive")
+        if (max < min)
+            throw InvalidParameterException("max cannot be less than min")
+    }
 
     /**
      * Rage affects knockback so confirm will kill sooner, but it doesn't affect hitstun so it will
      * also stop to connect earlier.
      *
-     * @param rageLvl Rage Lvl the returned range will be suited for
+     * @param rage Rage % the returned range will be suited for
      *
      * @return A new Booyah range for this context
      */
-    fun withRage(rageLvl: RageEffect): Range {
-        throw NotImplementedError()
-    }
+    fun withRage(rage: RageEffect) =
+        Range(min - rage.percentageModificator, max - rage.percentageModificator)
 
     /**
      * Inkling's ink affects knockback AND hitstun because Booyah is a combo (multi-hits) and ink
@@ -69,7 +74,5 @@ class Range {
      *
      * @return A new Booyah range for this context
      */
-    fun withInk(inkCoverage: InkRate): Range {
-        throw NotImplementedError()
-    }
+    fun withInk(inkCoverage: InkRate) = Range(min - inkCoverage.percentageModificator, max)
 }
