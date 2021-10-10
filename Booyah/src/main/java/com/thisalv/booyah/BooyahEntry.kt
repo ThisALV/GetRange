@@ -62,7 +62,7 @@ class BooyahEntry private constructor(
      * respected
      */
     constructor(
-        min: Int, max: Int, secondMin: Int, secondMax: Int, escape: Escape?
+        min: Int, max: Int, secondMin: Int, secondMax: Int, escape: Escape? = null
     ) : this(Range(min, max), Range(secondMin, secondMax), escape) {
         // min/max and secondMin/secondMax validity checks are delegated to the Range ctor
         // Here we only need to check for consistency between the two ranges border
