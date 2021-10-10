@@ -23,7 +23,7 @@ class Escape(val fromPercentage: Int, val move: String? = null) {
 
 /**
  * Contains ranges percentages for a specific Booyah character and calculates min/max percentages
- * variations depending on current stage, rage effect and ink %. Also contains escape percentage, if
+ * variations depending on current stage and rage effect. Also contains escape percentage, if
  * it exists for this entry.
  *
  * @property firstRange Mandatory Booyah range which exists on each character
@@ -86,11 +86,4 @@ class BooyahEntry private constructor(
      */
     fun withStage(minPercentageMalus: Int) =
         BooyahEntry(Range(firstRange.min + minPercentageMalus, firstRange.max), secondRange, escape)
-
-    /**
-     * Applies `withRage()` for both ranges and escape min % if any then retrieves new instance with
-     * updated ones.
-     */
-    fun withInk(inkCoverage: InkRate) =
-        BooyahEntry(firstRange.withInk(inkCoverage), secondRange?.withInk(inkCoverage), escape)
 }

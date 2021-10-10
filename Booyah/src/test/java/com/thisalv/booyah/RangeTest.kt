@@ -55,25 +55,4 @@ class RangeTest {
         assertEquals(98, highRage.min)
         assertEquals(128, highRage.max)
     }
-
-    @Test
-    fun withInk() {
-        val testingRange = Range(120, 150)
-
-        val noInk = testingRange.withInk(InkRate.NONE)
-        val halfInk = testingRange.withInk(InkRate.HALF)
-        val fullInk = testingRange.withInk(InkRate.FULL)
-
-        // No ink -> expects -0 modifier
-        assertEquals(120, noInk.min)
-        assertEquals(150, noInk.max)
-
-        // Half ink -> expects -2 modifier
-        assertEquals(118, halfInk.min)
-        assertEquals(150, noInk.max)
-
-        // Full ink -> expects -5 modifier
-        assertEquals(115, fullInk.min)
-        assertEquals(150, fullInk.max)
-    }
 }

@@ -17,19 +17,6 @@ enum class RageEffect(val percentageModificator: Int) {
 }
 
 /**
- * Designates Inkling opponent ink-covered rate. Opponent is ink-covered by Inkling's special moves.
- *
- * @property percentageModificator % to substract to min % on a `BooyahEntry`
- *
- * @author ThisALV, https://github.com/ThisALV/
- */
-enum class InkRate(val percentageModificator: Int) {
-    NONE(0),
-    HALF(2),
-    FULL(5)
-}
-
-/**
  * Contains valid min/max percentages for a specific Booyah range. `BooyahEntry` might contain two
  * of them.
  *
@@ -65,14 +52,4 @@ class Range(min: Int, max: Int) {
      */
     fun withRage(rage: RageEffect) =
         Range(min - rage.percentageModificator, max - rage.percentageModificator)
-
-    /**
-     * Inkling's ink affects knockback AND hitstun because Booyah is a combo (multi-hits) and ink
-     * modifies damage output.
-     *
-     * @param inkCoverage Inkling opponent ink-covered rate the returned range will be suited for
-     *
-     * @return A new Booyah range for this context
-     */
-    fun withInk(inkCoverage: InkRate) = Range(min - inkCoverage.percentageModificator, max)
 }
