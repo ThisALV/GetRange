@@ -46,9 +46,9 @@ class BooyahEntryTest {
     fun constructorSingleRange() {
         val booyah1 = BooyahEntry(130, 150)
         val booyah2 = BooyahEntry(130, 150, Escape(140))
+        val booyah3 = BooyahEntry(150, 130)
 
         assertThrows(InvalidParameterException::class.java) { BooyahEntry(-1, 150) }
-        assertThrows(InvalidParameterException::class.java) { BooyahEntry(130, 100) }
 
         assertEquals(booyah1.firstRange.min, 130)
         assertEquals(booyah1.firstRange.max, 150)
@@ -60,6 +60,11 @@ class BooyahEntryTest {
         assertNull(booyah2.secondRange)
         assertEquals(booyah2.escape?.fromPercentage, 140)
         assertNull(booyah2.escape?.move)
+
+        assertEquals(booyah3.firstRange.min, 150)
+        assertEquals(booyah3.firstRange.max, 130)
+        assertNull(booyah3.secondRange)
+        assertNull(booyah3.escape)
     }
 
     @Test
@@ -68,9 +73,9 @@ class BooyahEntryTest {
         val booyah2 = BooyahEntry(
             130, 150, 160, 170, Escape(140)
         )
+        val booyah3 = BooyahEntry(130, 120, 110, 100)
 
         assertThrows(InvalidParameterException::class.java) { BooyahEntry(-1, 150) }
-        assertThrows(InvalidParameterException::class.java) { BooyahEntry(130, 100) }
 
         assertEquals(booyah1.firstRange.min, 130)
         assertEquals(booyah1.firstRange.max, 150)
@@ -84,6 +89,14 @@ class BooyahEntryTest {
         assertEquals(booyah2.secondRange?.max, 170)
         assertEquals(booyah2.escape?.fromPercentage, 140)
         assertNull(booyah2.escape?.move)
+
+        // Here, no range can make Booyah works and 2nd range is prior to the 1st one, but we should
+        // be able to handle this case
+        assertEquals(booyah3.firstRange.min, 130)
+        assertEquals(booyah3.firstRange.max, 120)
+        assertEquals(booyah3.secondRange?.min, 110)
+        assertEquals(booyah3.secondRange?.max, 100)
+        assertNull(booyah3.escape)
     }
 
     @Test
@@ -142,9 +155,5 @@ class BooyahEntryTest {
         assertEquals(smallStageBooyah2.secondRange?.min, 160)
         assertEquals(smallStageBooyah2.secondRange?.max, 170)
         assertEquals(smallStageBooyah2.escape?.fromPercentage, 140)
-    }
-
-    @Test
-    fun withInk() {
     }
 }

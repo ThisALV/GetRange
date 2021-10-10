@@ -22,9 +22,10 @@ enum class RageEffect(val percentageModificator: Int) {
  *
  * @property min Minimum % for Booyah to connect and kill
  * @property max Maximum % for Booyah to connect
+ * @property working `true` if Booyah could connect and kill on this range, that is, if `min <= max`
  *
- * @constructor Builds valid range with given min and max percentages
- * @throws InvalidParameterException if `0 <= min <= max` isn't respected
+ * @constructor Builds range with given min and max percentages
+ * @throws InvalidParameterException if either `min` or `max` is negative
  *
  * @author ThisALV, https://github.com/ThisALV/
  */
@@ -35,11 +36,12 @@ class Range(min: Int, max: Int) {
     var max: Int = max
         private set
 
+    val working: Boolean
+        get() = min <= max
+
     init {
-        if (min < 0)
-            throw InvalidParameterException("min must be positive")
-        if (max < min)
-            throw InvalidParameterException("max cannot be less than min")
+        if (min < 0 || max < 0)
+            throw InvalidParameterException("min and max must be positives")
     }
 
     /**

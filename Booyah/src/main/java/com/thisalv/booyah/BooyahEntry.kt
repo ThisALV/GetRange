@@ -8,9 +8,16 @@ import java.security.InvalidParameterException
  * @property fromPercentage Minimum % for escape `move` to be effective.
  * @property move Not always known, but designate the move performed to escape the Booyah confirm
  *
+ * @throws InvalidParameterException if `fromPercentage` is negative
+ *
  * @author ThisALV, https://github.com/ThisALV/
  */
 class Escape(val fromPercentage: Int, val move: String? = null) {
+    init {
+        if (fromPercentage < 0)
+            throw InvalidParameterException("fromPercentage must be positive")
+    }
+
     /**
      * @param rageLvl Inkling rage effect, will subtract % modificator to escape move required
      * percentage, as rage only increases knockback
@@ -49,26 +56,19 @@ class BooyahEntry private constructor(
     /**
      * Builds range with given `min`, `max` percentages and with optional `escape` option.
      *
-     * @throws InvalidParameterException if `0 <= min <= max` isn't respected
+     * @throws InvalidParameterException if any of the given damage percentages is negative
      */
-    constructor(min: Int, max: Int, escape: Escape? = null):
+    constructor(min: Int, max: Int, escape: Escape? = null) :
             this(Range(min, max), null, escape) // Range ctor check min and max validity
 
     /**
      * Builds range with given `min` and `max` percentages, and builds a second range with
      * `secondMin` and `secondMax`, and with an option `escape` option.
      *
-     * @throws InvalidParameterException if `0 <= min <= max < secondMin <= secondMax` isn't
-     * respected
+     * @throws InvalidParameterException if any of the given damage percentages is negative
      */
-    constructor(
-        min: Int, max: Int, secondMin: Int, secondMax: Int, escape: Escape? = null
-    ) : this(Range(min, max), Range(secondMin, secondMax), escape) {
-        // min/max and secondMin/secondMax validity checks are delegated to the Range ctor
-        // Here we only need to check for consistency between the two ranges border
-        if (secondMin <= max)
-            throw InvalidParameterException("secondMin must be greater than max")
-    }
+    constructor(min: Int, max: Int, secondMin: Int, secondMax: Int, escape: Escape? = null) :
+            this(Range(min, max), Range(secondMin, secondMax), escape)
 
     /**
      * Applies `withRage()` for both ranges and escape min % if any then retrieves new instance with

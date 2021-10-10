@@ -10,15 +10,14 @@ import java.security.InvalidParameterException
 class RangeTest {
     @Test
     fun constructor() {
-        // Doesn't respect min >= 0
+        // Has a negative %
         assertThrows(InvalidParameterException::class.java) { Range(-1, 0) }
-        // Doesn't respect max >= min
-        assertThrows(InvalidParameterException::class.java) { Range(1, 0) }
 
-        // Does respect 0 <= min <= max
+        // Not any negative %
         val testingRange1 = Range(70, 70)
         val testingRange2 = Range(0, 150)
         val testingRange3 = Range(70, 150)
+        val testingRange4 = Range(150, 70)
 
         assertEquals(70, testingRange1.min)
         assertEquals(70, testingRange1.max)
@@ -28,6 +27,23 @@ class RangeTest {
 
         assertEquals(70, testingRange3.min)
         assertEquals(150, testingRange3.max)
+
+        assertEquals(150, testingRange4.min)
+        assertEquals(70, testingRange4.max)
+    }
+
+    @Test
+    fun working() {
+        val testingRange1 = Range(70, 70)
+        val testingRange2 = Range(0, 150)
+        val testingRange3 = Range(70, 150)
+        val testingRange4 = Range(150, 70)
+
+        assert(testingRange1.working)
+        assert(testingRange2.working)
+        assert(testingRange3.working)
+        // For this range, min > max meaning that no booyah could connect and kill
+        assertFalse(testingRange4.working)
     }
 
     @Test
