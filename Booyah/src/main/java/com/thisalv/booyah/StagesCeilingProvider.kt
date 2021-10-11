@@ -7,12 +7,12 @@ import java.io.InputStream
 
 /**
  * @property id Used to identify the stage for which this min % bonus is applying
- * @property booyahPercentageBonus Will be added to min % of a booyah
+ * @property booyahPercentageMalus Will be added to min % of a booyah
  *
  * @author ThisALV, https://github.com/ThisALV/
  */
 @Serializable
-data class StageCeiling(val id: String, val booyahPercentageBonus: Int)
+data class StageCeiling(val id: String, val booyahPercentageMalus: Int)
 
 /**
  * Classes that provide data for SSBU stage ceiling data should implements this interface and its
@@ -21,7 +21,7 @@ data class StageCeiling(val id: String, val booyahPercentageBonus: Int)
  * @author ThisALV, https://github.com/ThisALV/
  */
 abstract class StagesCeilingProvider {
-    abstract fun invoke(): Array<StageCeiling>
+    abstract operator fun invoke(): Array<StageCeiling>
 }
 
 /**
