@@ -1,5 +1,8 @@
 package com.thisalv.booyah
 
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import java.io.InputStream
 
 /**
@@ -8,6 +11,7 @@ import java.io.InputStream
  *
  * @author ThisALV, https://github.com/ThisALV/
  */
+@Serializable
 data class StageCeiling(val id: String, val booyahPercentageBonus: Int)
 
 /**
@@ -26,7 +30,6 @@ abstract class StagesCeilingProvider {
  * @author ThisALV, https://github.com/ThisALV/
  */
 class JsonStagesProvider(val jsonSource: InputStream) : StagesCeilingProvider() {
-    override fun invoke(): Array<StageCeiling> {
-        throw NotImplementedError()
-    }
+    override fun invoke(): Array<StageCeiling> =
+        Json.decodeFromString(jsonSource.bufferedReader().readText())
 }
