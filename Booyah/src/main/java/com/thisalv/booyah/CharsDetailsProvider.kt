@@ -30,7 +30,7 @@ abstract class CharsDetailsProvider {
      * @return An array of Inkling MU details (Booyah and burried Usmash viability) for each SSBU
      * character
      */
-    abstract fun invoke(): Array<CharDetails>
+    abstract operator fun invoke(): Array<CharDetails>
 }
 
 /**
