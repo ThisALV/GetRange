@@ -1,5 +1,8 @@
 package com.thisalv.booyah
 
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import java.io.InputStream
 
 /**
@@ -13,6 +16,7 @@ import java.io.InputStream
  *
  * @author ThisALV, https://github.com/ThisALV/
  */
+@Serializable
 data class CharDetails(val id: String, val booyahData: BooyahEntry, val canUsmashBurried: Boolean)
 
 /**
@@ -36,7 +40,6 @@ abstract class CharsDetailsProvider {
  * @author ThisALV, https://github.com/ThisALV/
  */
 class JsonCharsProvider(val jsonSource: InputStream) : CharsDetailsProvider() {
-    override fun invoke(): Array<CharDetails> {
-        throw NotImplementedError()
-    }
+    override fun invoke(): Array<CharDetails> =
+        Json.decodeFromString(jsonSource.bufferedReader().readText())
 }

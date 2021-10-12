@@ -1,5 +1,6 @@
 package com.thisalv.booyah
 
+import kotlinx.serialization.Serializable
 import java.security.InvalidParameterException
 
 /**
@@ -12,6 +13,7 @@ import java.security.InvalidParameterException
  *
  * @author ThisALV, https://github.com/ThisALV/
  */
+@Serializable
 class Escape(val fromPercentage: Int, val move: String? = null) {
     init {
         if (fromPercentage < 0)
@@ -43,16 +45,11 @@ class Escape(val fromPercentage: Int, val move: String? = null) {
  *
  * @author ThisALV, https://github.com/ThisALV/
  */
+@Serializable
 class BooyahEntry private constructor(
-    firstRange: Range, secondRange: Range? = null,
+    val firstRange: Range, val secondRange: Range? = null,
     val escape: Escape? = null
 ) {
-    var firstRange: Range = firstRange
-        private set
-
-    var secondRange: Range? = secondRange
-        private set
-
     /**
      * Builds range with given `min`, `max` percentages and with optional `escape` option.
      *
