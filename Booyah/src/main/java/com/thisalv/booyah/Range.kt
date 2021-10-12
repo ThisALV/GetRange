@@ -1,5 +1,10 @@
 package com.thisalv.booyah
 
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.SerialKind
 import java.security.InvalidParameterException
 
 /**
@@ -29,13 +34,8 @@ enum class RageEffect(val percentageModificator: Int) {
  *
  * @author ThisALV, https://github.com/ThisALV/
  */
-class Range(min: Int, max: Int) {
-    var min: Int = min
-        private set
-
-    var max: Int = max
-        private set
-
+@Serializable
+class Range(val min: Int, val max: Int) {
     val working: Boolean
         get() = min <= max
 
