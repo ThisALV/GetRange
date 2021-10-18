@@ -46,8 +46,8 @@
             app:layout_constraintTop_toTopOf="parent"
             android:visibility=
                 "@{charEntry.booyahData.secondRange == null ? View.INVISIBLE : View.VISIBLE}"
-            app:min="@{charEntry.booyahData.secondRange.min ?? 0}"
-            app:max="@{charEntry.booyahData.secondRange.max ?? 0}" />
+            app:min="@{charEntry.booyahData.secondRange.min}"
+            app:max="@{charEntry.booyahData.secondRange.max}" />
 
         <TextView
             android:id="@+id/escapeMoveText"
@@ -55,8 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:visibility=
-                "@{charEntry.booyahData.escape.move ?? null == null ? View.INVISIBLE : View.VISIBLE}"
-            android:text="@{charEntry.booyahData.escape.move ?? ' '}"
+                '@{charEntry.booyahData.escape.move == null ? View.INVISIBLE : View.VISIBLE}'
+            android:text='@{charEntry.booyahData.escape.move ?? ""}'
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -67,8 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:visibility=
-                "@{charEntry.booyahData.escape == null ? View.INVISIBLE : View.VISIBLE}"
-            android:text="@{charEntry.booyahData.escape.fromPercentage + '%' ?? ' '}"
+                '@{charEntry.booyahData.escape == null ? View.INVISIBLE : View.VISIBLE}'
+            android:text='@{charEntry.booyahData.escape.fromPercentage + "%"}'
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/escapeMoveText"
             app:layout_constraintTop_toTopOf="parent" />
