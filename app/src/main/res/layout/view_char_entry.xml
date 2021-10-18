@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="charEntry"
+            type="com.thisalv.booyah.CharDetails" />
+        
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/charIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:contentDescription="@string/ssbuStockIconDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/unknown" />
+
+        <com.thisalv.getrange.BooyahRangeView
+            android:id="@+id/firstRangeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/charIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:min="@{charEntry.booyahData.firstRange.min}"
+            app:max="@{charEntry.booyahData.firstRange.max}" />
+
+        <com.thisalv.getrange.BooyahRangeView
+            android:id="@+id/secondRangeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/firstRangeText"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility=
+                "@{charEntry.booyahData.secondRange == null ? View.INVISIBLE : View.VISIBLE}"
+            app:min="@{charEntry.booyahData.secondRange.min ?? 0}"
+            app:max="@{charEntry.booyahData.secondRange.max ?? 0}" />
+
+        <TextView
+            android:id="@+id/escapeMoveText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:visibility=
+                "@{charEntry.booyahData.escape.move ?? null == null ? View.INVISIBLE : View.VISIBLE}"
+            android:text="@{charEntry.booyahData.escape.move ?? ' '}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/escapePercentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:visibility=
+                "@{charEntry.booyahData.escape == null ? View.INVISIBLE : View.VISIBLE}"
+            android:text="@{charEntry.booyahData.escape.fromPercentage + '%' ?? ' '}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/escapeMoveText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
