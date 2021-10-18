@@ -3,4 +3,7 @@
     <string name="stockIconDescription">SSBU Stock Icon for this character</string>
     <string name="range">%1$d%%-%2$d%%</string>
     <string name="ssbuStockIconDescription">A character SSBU stock icon</string>
+    <string name="usmashBurriedLabel">Usmash?</string>
+    <string name="usmashPasses">&#x2713;</string>
+    <string name="usmashFails">&#x2715;</string>
 </resources>

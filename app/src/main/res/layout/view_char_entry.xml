@@ -61,6 +61,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/escapeLayout"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -88,6 +89,38 @@
                 android:textColor="@color/escape"
                 android:textSize="16sp"
                 android:visibility='@{charEntry.booyahData.escape.move == null ? View.INVISIBLE : View.VISIBLE}' />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/usmashLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/escapeLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/usmashBurriedLabel"
+                android:textAlignment="center"
+                android:textColor=
+                    "@{charEntry.canUsmashBurried ? @color/usmashPasses : @color/usmashFails}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{charEntry.canUsmashBurried ? @string/usmashPasses : @string/usmashFails}"
+                android:textAlignment="center"
+                android:textColor="@{charEntry.canUsmashBurried ? @color/usmashPasses : @color/usmashFails}"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
         </LinearLayout>
 
 

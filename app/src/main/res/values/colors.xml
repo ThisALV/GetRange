@@ -10,4 +10,6 @@
     <color name="first_range">#FF000000</color>
     <color name="second_range">#FF03009B</color>
     <color name="escape">#FFE50013</color>
+    <color name="usmashPasses">#FF34E700</color>
+    <color name="usmashFails">#FF9F000E</color>
 </resources>
