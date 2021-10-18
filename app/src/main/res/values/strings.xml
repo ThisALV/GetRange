@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GetRange</string>
+    <string name="stockIconDescription">SSBU Stock Icon for this character</string>
+    <string name="range">%1$d%%-%2$d%%</string>
 </resources>
