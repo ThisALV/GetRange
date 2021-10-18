@@ -2,7 +2,6 @@ package com.thisalv.getrange
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatTextView
 
 /**
@@ -12,8 +11,7 @@ import androidx.appcompat.widget.AppCompatTextView
  * @property min Left percentage to print on text
  * @property max Right percentage to print on text
  *
- * @constructor Set font size to 30dp, and tries to read `min` and `max` from attributes then update
- * displayed text
+ * @constructor Tries to read `min` and `max` from attributes then update displayed text
  */
 class BooyahRangeView constructor(
     context: Context, attrs: AttributeSet
@@ -34,16 +32,11 @@ class BooyahRangeView constructor(
                 recycle() // Required for next operations with TypedArray to run as expected
             }
         }
-
-        setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
     }
 
     /**
-     * Applies "{min}%-{max}%" to `TextView` text attribute, with min & max extracted from
-     * this element attributes, and applies a size of 30sp to this font.
-     *
-     * @param min New left % to print in the range text
-     * @param max New right % to print in the range text
+     * Applies "{min}%-{max}%" to `TextView` text attribute, with `min` & `max` being private
+     * properties assigned by last attribute set.
      */
     private fun update() {
         this@BooyahRangeView.text = context.getString(R.string.range, min, max)

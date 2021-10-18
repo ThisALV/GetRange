@@ -11,67 +11,84 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/charEntryLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="80dp">
 
         <ImageView
             android:id="@+id/charIcon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="24dp"
+            android:layout_width="80dp"
+            android:layout_height="0dp"
             android:contentDescription="@string/ssbuStockIconDescription"
+            android:src="@drawable/unknown"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/unknown" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.thisalv.getrange.BooyahRangeView
-            android:id="@+id/firstRangeText"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:id="@+id/rangesLayout"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/charIcon"
             app:layout_constraintTop_toTopOf="parent"
-            app:min="@{charEntry.booyahData.firstRange.min}"
-            app:max="@{charEntry.booyahData.firstRange.max}" />
+            app:layout_constraintVertical_bias="0.533">
 
-        <com.thisalv.getrange.BooyahRangeView
-            android:id="@+id/secondRangeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/firstRangeText"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility=
-                "@{charEntry.booyahData.secondRange == null ? View.INVISIBLE : View.VISIBLE}"
-            app:min="@{charEntry.booyahData.secondRange.min}"
-            app:max="@{charEntry.booyahData.secondRange.max}" />
+            <com.thisalv.getrange.BooyahRangeView
+                android:id="@+id/firstRangeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/first_range"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:max="@{charEntry.booyahData.firstRange.max}"
+                app:min="@{charEntry.booyahData.firstRange.min}" />
 
-        <TextView
-            android:id="@+id/escapeMoveText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:visibility=
-                '@{charEntry.booyahData.escape.move == null ? View.INVISIBLE : View.VISIBLE}'
-            android:text='@{charEntry.booyahData.escape.move ?? ""}'
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <com.thisalv.getrange.BooyahRangeView
+                android:id="@+id/secondRangeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/second_range"
+                android:textSize="24sp"
+                android:visibility="@{charEntry.booyahData.secondRange == null ? View.INVISIBLE : View.VISIBLE}"
+                app:max="@{charEntry.booyahData.secondRange.max}"
+                app:min="@{charEntry.booyahData.secondRange.min}" />
 
-        <TextView
-            android:id="@+id/escapePercentText"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:visibility=
-                '@{charEntry.booyahData.escape == null ? View.INVISIBLE : View.VISIBLE}'
-            android:text='@{charEntry.booyahData.escape.fromPercentage + "%"}'
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/escapeMoveText"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/rangesLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/escapePercentText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{charEntry.booyahData.escape.fromPercentage + "%"}'
+                android:textAlignment="center"
+                android:textColor="@color/escape"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility='@{charEntry.booyahData.escape == null ? View.INVISIBLE : View.VISIBLE}' />
+
+            <TextView
+                android:id="@+id/escapeMoveText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{charEntry.booyahData.escape.move ?? "A move"}'
+                android:textAlignment="center"
+                android:textColor="@color/escape"
+                android:textSize="16sp"
+                android:visibility='@{charEntry.booyahData.escape.move == null ? View.INVISIBLE : View.VISIBLE}' />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
