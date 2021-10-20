@@ -20,7 +20,7 @@
             android:layout_width="80dp"
             android:layout_height="0dp"
             android:contentDescription="@string/ssbuStockIconDescription"
-            android:src="@drawable/unknown"
+            app:characterId="@{charEntry.id}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
