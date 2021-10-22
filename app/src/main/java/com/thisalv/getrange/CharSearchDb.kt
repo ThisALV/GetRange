@@ -27,7 +27,12 @@ class CharSearchDb constructor(charsDb: Array<CharDetails>, aliases: Map<String,
     init {
         for (charEntry in charsDb) {
             // Current char ID contains keywords for its entry
-            val keywords = charEntry.id.split('_') as MutableList<String>
+            var keywords = charEntry.id.split('_') as MutableList
+
+            // If split() returns a single element collection, then it will not cast into a
+            // MutableList as expected
+            if (keywords.size == 1)
+                keywords = mutableListOf(charEntry.id) // Only one word, se we can take ID directly
 
             val charAliases = aliases[charEntry.id] // Aliases for this char entry
             if (charAliases != null) {// If aliases are there, add theme as keywords
