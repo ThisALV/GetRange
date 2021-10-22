@@ -87,6 +87,7 @@ class CharSelectActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_char_select)
+        setShowWhenLocked(true)
 
         val charsDb = loadCharactersDb() // Chars are required, errors are fatal
 
