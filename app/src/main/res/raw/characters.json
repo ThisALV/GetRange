@@ -1,0 +1,967 @@
+[
+    {
+        "id": "mario",
+        "booyahData": {
+            "firstRange": {
+                "min": 114,
+                "max": 122
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "donkey_kong",
+        "booyahData": {
+            "firstRange": {
+                "min": 135,
+                "max": 169
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "lucina",
+        "booyahData": {
+            "firstRange": {
+                "min": 109,
+                "max": 120
+            },
+            "secondRange": {
+                "min": 124,
+                "max": 128
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "yoshi",
+        "booyahData": {
+            "firstRange": {
+                "min": 118,
+                "max": 129
+            },
+            "escape": {
+                "fromPercentage": 120,
+                "move": "Double Jump"
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "link",
+        "booyahData": {
+            "firstRange": {
+                "min": 119,
+                "max": 129
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "samus",
+        "booyahData": {
+            "firstRange": {
+                "min": 123,
+                "max": 148
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "dark_samus",
+        "booyahData": {
+            "firstRange": {
+                "min": 123,
+                "max": 147
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "kirby",
+        "booyahData": {
+            "firstRange": {
+                "min": 99,
+                "max": 123
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "fox",
+        "booyahData": {
+            "firstRange": {
+                "min": 100,
+                "max": 104
+            },
+            "secondRange": {
+                "min": 106,
+                "max": 106
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "pikachu",
+        "booyahData": {
+            "firstRange": {
+                "min": 99,
+                "max": 103
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "luigi",
+        "booyahData": {
+            "firstRange": {
+                "min": 113,
+                "max": 125
+            },
+            "escape": {
+                "fromPercentage": 0,
+                "move": "Down B"
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "ness",
+        "booyahData": {
+            "firstRange": {
+                "min": 111,
+                "max": 121
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "captain_falcon",
+        "booyahData": {
+            "firstRange": {
+                "min": 102,
+                "max": 150
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "jigglypuff",
+        "booyahData": {
+            "firstRange": {
+                "min": 90,
+                "max": 115
+            },
+            "escape": {
+                "fromPercentage": 105,
+                "move": "Down B"
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "peach",
+        "booyahData": {
+            "firstRange": {
+                "min": 107,
+                "max": 117
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "daisy",
+        "booyahData": {
+            "firstRange": {
+                "min": 106,
+                "max": 116
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "bowser",
+        "booyahData": {
+            "firstRange": {
+                "min": 144,
+                "max": 173
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "ice_climbers",
+        "booyahData": {
+            "firstRange": {
+                "min": 109,
+                "max": 113
+            },
+            "escape": {
+                "fromPercentage": 0,
+                "move": "Nana"
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "sheik",
+        "booyahData": {
+            "firstRange": {
+                "min": 100,
+                "max": 118
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "zelda",
+        "booyahData": {
+            "firstRange": {
+                "min": 105,
+                "max": 125
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "dr_mario",
+        "booyahData": {
+            "firstRange": {
+                "min": 113,
+                "max": 121
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "pichu",
+        "booyahData": {
+            "firstRange": {
+                "min": 86,
+                "max": 93
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "falco",
+        "booyahData": {
+            "firstRange": {
+                "min": 102,
+                "max": 107
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "marth",
+        "booyahData": {
+            "firstRange": {
+                "min": 109,
+                "max": 120
+            },
+            "secondRange": {
+                "min": 124,
+                "max": 128
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "young_link",
+        "booyahData": {
+            "firstRange": {
+                "min": 107,
+                "max": 119
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "ganondorf",
+        "booyahData": {
+            "firstRange": {
+                "min": 129,
+                "max": 160
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "mewtwo",
+        "booyahData": {
+            "firstRange": {
+                "min": 101,
+                "max": 126
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "roy",
+        "booyahData": {
+            "firstRange": {
+                "min": 114,
+                "max": 133
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "chrom",
+        "booyahData": {
+            "firstRange": {
+                "min": 114,
+                "max": 133
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "mr_game_and_watch",
+        "booyahData": {
+            "firstRange": {
+                "min": 95,
+                "max": 107
+            },
+            "escape": {
+                "fromPercentage": 96,
+                "move": "Up B"
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "meta_knight",
+        "booyahData": {
+            "firstRange": {
+                "min": 100,
+                "max": 110
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "pit",
+        "booyahData": {
+            "firstRange": {
+                "min": 113,
+                "max": 138
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "dark_pit",
+        "booyahData": {
+            "firstRange": {
+                "min": 113,
+                "max": 138
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "zero_suit_samus",
+        "booyahData": {
+            "firstRange": {
+                "min": 103,
+                "max": 122
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "wario",
+        "booyahData": {
+            "firstRange": {
+                "min": 118,
+                "max": 125
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "snake",
+        "booyahData": {
+            "firstRange": {
+                "min": 121,
+                "max": 152
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "ike",
+        "booyahData": {
+            "firstRange": {
+                "min": 122,
+                "max": 150
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "diddy_kong",
+        "booyahData": {
+            "firstRange": {
+                "min": 108,
+                "max": 113
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "lucas",
+        "booyahData": {
+            "firstRange": {
+                "min": 111,
+                "max": 120
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "sonic",
+        "booyahData": {
+            "firstRange": {
+                "min": 106,
+                "max": 116
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "king_dedede",
+        "booyahData": {
+            "firstRange": {
+                "min": 135,
+                "max": 159
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "olimar",
+        "booyahData": {
+            "firstRange": {
+                "min": 98,
+                "max": 101
+            },
+            "escape": {
+                "fromPercentage": 100,
+                "move": "Down B"
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "lucario",
+        "booyahData": {
+            "firstRange": {
+                "min": 110,
+                "max": 133
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "rob",
+        "booyahData": {
+            "firstRange": {
+                "min": 121,
+                "max": 130
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "toon_link",
+        "booyahData": {
+            "firstRange": {
+                "min": 109,
+                "max": 112
+            },
+            "escape": {
+                "fromPercentage": 109
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "wolf",
+        "booyahData": {
+            "firstRange": {
+                "min": 111,
+                "max": 124
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "villager",
+        "booyahData": {
+            "firstRange": {
+                "min": 109,
+                "max": 111
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "mega_man",
+        "booyahData": {
+            "firstRange": {
+                "min": 117,
+                "max": 125
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "wii_fit_trainer",
+        "booyahData": {
+            "firstRange": {
+                "min": 113,
+                "max": 128
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "rosalina_and_luma",
+        "booyahData": {
+            "firstRange": {
+                "min": 103,
+                "max": 113
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "little_mac",
+        "booyahData": {
+            "firstRange": {
+                "min": 107,
+                "max": 126
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "greninja",
+        "booyahData": {
+            "firstRange": {
+                "min": 108,
+                "max": 120
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "palutena",
+        "booyahData": {
+            "firstRange": {
+                "min": 110,
+                "max": 128
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "pac_man",
+        "booyahData": {
+            "firstRange": {
+                "min": 109,
+                "max": 112
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "robin",
+        "booyahData": {
+            "firstRange": {
+                "min": 113,
+                "max": 135
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "shulk",
+        "booyahData": {
+            "firstRange": {
+                "min": 114,
+                "max": 137
+            },
+            "escape": {
+                "fromPercentage": 0,
+                "move": "Enabled Sh. Art"
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "bowser_jr",
+        "booyahData": {
+            "firstRange": {
+                "min": 123,
+                "max": 158
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "duck_hunt",
+        "booyahData": {
+            "firstRange": {
+                "min": 106,
+                "max": 110
+            },
+            "escape": {
+                "fromPercentage": 110,
+                "move": "Neutral B (Can)"
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "ryu",
+        "booyahData": {
+            "firstRange": {
+                "min": 120,
+                "max": 149
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "ken",
+        "booyahData": {
+            "firstRange": {
+                "min": 120,
+                "max": 149
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "cloud",
+        "booyahData": {
+            "firstRange": {
+                "min": 116,
+                "max": 138
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "corrin",
+        "booyahData": {
+            "firstRange": {
+                "min": 115,
+                "max": 136
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "bayonetta",
+        "booyahData": {
+            "firstRange": {
+                "min": 104,
+                "max": 127
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "inkling",
+        "booyahData": {
+            "firstRange": {
+                "min": 110,
+                "max": 114
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "ridley",
+        "booyahData": {
+            "firstRange": {
+                "min": 121,
+                "max": 161
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "simon",
+        "booyahData": {
+            "firstRange": {
+                "min": 122,
+                "max": 149
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "richter",
+        "booyahData": {
+            "firstRange": {
+                "min": 122,
+                "max": 149
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "king_k_rool",
+        "booyahData": {
+            "firstRange": {
+                "min": 135,
+                "max": 167
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "shizue",
+        "booyahData": {
+            "firstRange": {
+                "min": 106,
+                "max": 110
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "gaogaen",
+        "booyahData": {
+            "firstRange": {
+                "min": 130,
+                "max": 158
+            },
+            "secondRange": {
+                "min": 163,
+                "max": 170
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "packun_flower",
+        "booyahData": {
+            "firstRange": {
+                "min": 124,
+                "max": 130
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "joker",
+        "booyahData": {
+            "firstRange": {
+                "min": 111,
+                "max": 130
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "hero",
+        "booyahData": {
+            "firstRange": {
+                "min": 117,
+                "max": 126
+            },
+            "secondRange": {
+                "min": 132,
+                "max": 134
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "banjo_kazooie",
+        "booyahData": {
+            "firstRange": {
+                "min": 120,
+                "max": 145
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "terry",
+        "booyahData": {
+            "firstRange": {
+                "min": 124,
+                "max": 161
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "byleth",
+        "booyahData": {
+            "firstRange": {
+                "min": 114,
+                "max": 122
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "min_min",
+        "booyahData": {
+            "firstRange": {
+                "min": 121,
+                "max": 145
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "steve",
+        "booyahData": {
+            "firstRange": {
+                "min": 110,
+                "max": 120
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "pyra",
+        "booyahData": {
+            "firstRange": {
+                "min": 114,
+                "max": 126
+            },
+            "secondRange": {
+                "min": 130,
+                "max": 134
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "mythra",
+        "booyahData": {
+            "firstRange": {
+                "min": 110,
+                "max": 125
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "sephiroth",
+        "booyahData": {
+            "firstRange": {
+                "min": 99,
+                "max": 110
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "kazuya",
+        "booyahData": {
+            "firstRange": {
+                "min": 127,
+                "max": 152
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "sora",
+        "booyahData": {
+            "firstRange": {
+                "min": 105,
+                "max": 118
+            },
+            "secondRange": {
+                "min": 120,
+                "max": 123
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "mii_brawler",
+        "booyahData": {
+            "firstRange": {
+                "min": 111,
+                "max": 123
+            },
+            "escape": {
+                "fromPercentage": 121,
+                "move": "Feint Jump"
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "mii_gunner",
+        "booyahData": {
+            "firstRange": {
+                "min": 117,
+                "max": 123
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "mii_swordfighter",
+        "booyahData": {
+            "firstRange": {
+                "min": 115,
+                "max": 117
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "charizard",
+        "booyahData": {
+            "firstRange": {
+                "min": 127,
+                "max": 155
+            }
+        },
+        "canUsmashBurried": false
+    },
+    {
+        "id": "ivysaur",
+        "booyahData": {
+            "firstRange": {
+                "min": 112,
+                "max": 121
+            },
+            "escape": {
+                "fromPercentage": 122,
+                "move": "Down B"
+            }
+        },
+        "canUsmashBurried": true
+    },
+    {
+        "id": "squirtle",
+        "booyahData": {
+            "firstRange": {
+                "min": 96,
+                "max": 106
+            },
+            "escape": {
+                "fromPercentage": 0,
+                "move": "Down B"
+            }
+        },
+        "canUsmashBurried": true
+    }
+]

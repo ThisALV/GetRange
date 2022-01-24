@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="charEntry"
+            type="com.thisalv.booyah.CharDetails" />
+        
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/charEntryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:id="@+id/charIcon"
+            android:layout_width="80dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/ssbuStockIconDescription"
+            app:characterId="@{charEntry.id}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/rangesLayout"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/charIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.533">
+
+            <com.thisalv.getrange.BooyahRangeView
+                android:id="@+id/firstRangeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/first_range"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:max="@{charEntry.booyahData.firstRange.max}"
+                app:min="@{charEntry.booyahData.firstRange.min}" />
+
+            <com.thisalv.getrange.BooyahRangeView
+                android:id="@+id/secondRangeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/second_range"
+                android:textSize="24sp"
+                android:visibility="@{charEntry.booyahData.secondRange == null ? View.INVISIBLE : View.VISIBLE}"
+                app:max="@{charEntry.booyahData.secondRange.max}"
+                app:min="@{charEntry.booyahData.secondRange.min}" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/escapeLayout"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rangesLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/escapePercentText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{charEntry.booyahData.escape.fromPercentage + "%"}'
+                android:textAlignment="center"
+                android:textColor="@color/escape"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility='@{charEntry.booyahData.escape == null ? View.INVISIBLE : View.VISIBLE}' />
+
+            <TextView
+                android:id="@+id/escapeMoveText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{charEntry.booyahData.escape.move ?? "A move"}'
+                android:textAlignment="center"
+                android:textColor="@color/escape"
+                android:textSize="16sp"
+                android:visibility='@{charEntry.booyahData.escape.move == null ? View.INVISIBLE : View.VISIBLE}' />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/usmashLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/escapeLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/usmashBurriedLabel"
+                android:textAlignment="center"
+                android:textColor=
+                    "@{charEntry.canUsmashBurried ? @color/usmashPasses : @color/usmashFails}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{charEntry.canUsmashBurried ? @string/usmashPasses : @string/usmashFails}"
+                android:textAlignment="center"
+                android:textColor="@{charEntry.canUsmashBurried ? @color/usmashPasses : @color/usmashFails}"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
