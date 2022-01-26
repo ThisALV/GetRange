@@ -8,4 +8,5 @@
     <string name="usmashFails">&#x2715;</string>
     <string name="charsListDescription">Scrollable list of SSBU chars entries</string>
     <string name="nameSearchDescription">Search for character name</string>
+    <string name="sampleBooyahRange">00% - 00%</string>
 </resources>

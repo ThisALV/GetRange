@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="firstMin" type="Integer" />
+        <variable name="firstMax" type="Integer" />
+        <variable name="secondMin" type="Integer" />
+        <variable name="secondMax" type="Integer" />
+        <variable name="hasSecondRange" type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rangesLayout"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/charIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.533">
+
+        <com.thisalv.getrange.BooyahRangeView
+            android:id="@+id/firstRangeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/first_range"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:max="@{firstMax}"
+            app:min="@{firstMin}" />
+
+        <com.thisalv.getrange.BooyahRangeView
+            android:id="@+id/secondRangeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/second_range"
+            android:textSize="24sp"
+            android:visibility="@{hasSecondRange ? View.VISIBLE : View.INVISIBLE}"
+            app:max="@{secondMax}"
+            app:min="@{secondMin}" />
+
+    </LinearLayout>
+</layout>

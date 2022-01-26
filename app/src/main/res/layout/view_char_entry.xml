@@ -26,39 +26,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <LinearLayout
-            android:id="@+id/rangesLayout"
+        <com.thisalv.getrange.AllBooyahRangesView
+            android:id="@+id/ranges"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/charIcon"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.533">
-
-            <com.thisalv.getrange.BooyahRangeView
-                android:id="@+id/firstRangeText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/first_range"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:max="@{charEntry.booyahData.firstRange.max}"
-                app:min="@{charEntry.booyahData.firstRange.min}" />
-
-            <com.thisalv.getrange.BooyahRangeView
-                android:id="@+id/secondRangeText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="@color/second_range"
-                android:textSize="24sp"
-                android:visibility="@{charEntry.booyahData.secondRange == null ? View.INVISIBLE : View.VISIBLE}"
-                app:max="@{charEntry.booyahData.secondRange.max}"
-                app:min="@{charEntry.booyahData.secondRange.min}" />
-
-        </LinearLayout>
+            app:layout_constraintVertical_bias="0.533"
+            app:firstMin="@{charEntry.booyahData.firstRange.min}"
+            app:firstMax="@{charEntry.booyahData.firstRange.max}"
+            app:secondMin="@{charEntry.booyahData.secondRange == null ? -1 : charEntry.booyahData.secondRange.min}"
+            app:secondMax="@{charEntry.booyahData.secondRange == null ? -1 : charEntry.booyahData.secondRange.max}" />
 
         <LinearLayout
             android:id="@+id/escapeLayout"
@@ -66,7 +46,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/rangesLayout"
+            app:layout_constraintStart_toEndOf="@+id/ranges"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView

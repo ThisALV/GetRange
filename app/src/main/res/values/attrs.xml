@@ -4,4 +4,12 @@
         <attr name="min" format="integer" />
         <attr name="max" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="AllBooyahRangesView">
+        <attr name="firstMin" format="integer" />
+        <attr name="firstMax" format="integer" />
+
+        <attr name="secondMin" format="integer" />
+        <attr name="secondMax" format="integer" />
+    </declare-styleable>
 </resources>
