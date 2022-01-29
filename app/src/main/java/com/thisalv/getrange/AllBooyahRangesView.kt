@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.children
 import com.thisalv.getrange.databinding.ViewAllBooyahRangesBinding
 
 /**
@@ -31,7 +30,9 @@ class AllBooyahRangesView constructor(
     // second* properties must be initialized for hasSecondRange getter to work
     private var secondMin = -1
     private var secondMax = -1
-    private var hasSecondRange: Boolean = secondMin != -1 || secondMax != -1
+    // If one of the two 2nd range value is undefined, then there is no 2nd range
+    private val hasSecondRange: Boolean
+        get() = secondMin != -1 || secondMax != -1
 
     // Accesses properties to refresh booyah ranges values on underlying BooyahRangeView elements
     private val binding: ViewAllBooyahRangesBinding
@@ -39,8 +40,7 @@ class AllBooyahRangesView constructor(
     init {
         context.theme.obtainStyledAttributes(
             attrs, R.styleable.AllBooyahRangesView, 0, 0
-        ).apply {layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
-        layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
+        ).apply {
             try { // getInt() might fail if this TypedArray wasn't recycled by previous operation
                 firstMin = getInt(R.styleable.AllBooyahRangesView_firstMin, 0)
                 firstMax = getInt(R.styleable.AllBooyahRangesView_firstMax, 0)
@@ -53,6 +53,9 @@ class AllBooyahRangesView constructor(
                 binding = ViewAllBooyahRangesBinding.inflate(
                     LayoutInflater.from(context), this@AllBooyahRangesView, true
                 ).apply {
+                    // This cutsom view (AllBooyagRangesView) is purely for logic monitoring of
+                    // the child view LinearLayout, so child takes the whole available space at
+                    // inflate
                     layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
                     layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
                 }
@@ -65,6 +68,7 @@ class AllBooyahRangesView constructor(
     }
 
     private fun update() {
+        // Updates data binding variables for custom view XML attributes
         binding.apply {
             firstMin = this@AllBooyahRangesView.firstMin
             firstMax = this@AllBooyahRangesView.firstMax
