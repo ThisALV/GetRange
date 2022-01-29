@@ -1,0 +1,50 @@
+[
+    {
+        "id": "bf",
+        "booyahPercentageMalus": 8
+    },
+    {
+        "id": "sbf",
+        "booyahPercentageMalus": 0
+    },
+    {
+        "id": "kalos",
+        "booyahPercentageMalus": 8
+    },
+    {
+        "id": "sv",
+        "booyahPercentageMalus": 6
+    },
+    {
+        "id": "tc",
+        "booyahPercentageMalus": 6
+    },
+    {
+        "id": "fd",
+        "booyahPercentageMalus": 0
+    },
+    {
+        "id": "ps2",
+        "booyahPercentageMalus": 0
+    },
+    {
+        "id": "ys",
+        "booyahPercentageMalus": 0
+    },
+    {
+        "id": "lylat",
+        "booyahPercentageMalus": 0
+    },
+    {
+        "id": "hollow",
+        "booyahPercentageMalus": 0
+    },
+    {
+        "id": "northen",
+        "booyahPercentageMalus": -3
+    },
+    {
+        "id": "fd",
+        "booyahPercentageMalus": 6
+    }
+]
