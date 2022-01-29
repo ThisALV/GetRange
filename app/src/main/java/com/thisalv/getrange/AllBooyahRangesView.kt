@@ -2,7 +2,11 @@ package com.thisalv.getrange
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.LinearLayout
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.children
+import com.thisalv.getrange.databinding.ViewAllBooyahRangesBinding
 
 /**
  * Displays a first Booyah range, and a second one if it exists.
@@ -20,19 +24,23 @@ import android.widget.LinearLayout
  */
 class AllBooyahRangesView constructor(
     context: Context, attrs: AttributeSet
-): LinearLayout(context, attrs) {
-    private var firstMin: Int
-    private var firstMax: Int
+): ConstraintLayout(context, attrs) {
+    private var firstMin = 0
+    private var firstMax = 0
 
     // second* properties must be initialized for hasSecondRange getter to work
-    private var secondMin: Int = -1
-    private var secondMax: Int = -1
+    private var secondMin = -1
+    private var secondMax = -1
     private var hasSecondRange: Boolean = secondMin != -1 || secondMax != -1
+
+    // Accesses properties to refresh booyah ranges values on underlying BooyahRangeView elements
+    private val binding: ViewAllBooyahRangesBinding
 
     init {
         context.theme.obtainStyledAttributes(
             attrs, R.styleable.AllBooyahRangesView, 0, 0
-        ).apply {
+        ).apply {layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
+        layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
             try { // getInt() might fail if this TypedArray wasn't recycled by previous operation
                 firstMin = getInt(R.styleable.AllBooyahRangesView_firstMin, 0)
                 firstMax = getInt(R.styleable.AllBooyahRangesView_firstMax, 0)
@@ -40,6 +48,16 @@ class AllBooyahRangesView constructor(
                 // Missing 2nd range value will lead to -1 value which is disabling this range
                 secondMin = getInt(R.styleable.AllBooyahRangesView_secondMin, -1)
                 secondMax = getInt(R.styleable.AllBooyahRangesView_secondMax, -1)
+
+                // Creates and display the child LinearLayout containing the 2 ranges textviews
+                binding = ViewAllBooyahRangesBinding.inflate(
+                    LayoutInflater.from(context), this@AllBooyahRangesView, true
+                ).apply {
+                    layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
+                    layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
+                }
+
+                update()
             } finally {
                 recycle()
             }
@@ -47,16 +65,25 @@ class AllBooyahRangesView constructor(
     }
 
     private fun update() {
+        binding.apply {
+            firstMin = this@AllBooyahRangesView.firstMin
+            firstMax = this@AllBooyahRangesView.firstMax
+
+            secondMin = this@AllBooyahRangesView.secondMin
+            secondMax = this@AllBooyahRangesView.secondMax
+
+            hasSecondRange = this@AllBooyahRangesView.hasSecondRange
+        }
+
         // Layout must be calculated again, and view must be redrawn
         requestLayout()
-        invalidate()
     }
 
     /**
      * Updates `firstMin`.
      */
     fun setFirstMin(firstMin: Int) {
-        this.firstMin = firstMin // Ça fait Min-min ptdrrr
+        this.firstMin = firstMin
         update()
     }
 
@@ -72,7 +99,7 @@ class AllBooyahRangesView constructor(
      * Updates `secondMin`.
      */
     fun setSecondMin(secondMin: Int) {
-        this.secondMin = secondMin // Ça fait Min-min ptdrrr
+        this.secondMin = secondMin
         update()
     }
 

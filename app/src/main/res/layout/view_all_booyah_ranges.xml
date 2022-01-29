@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View" />
+
         <variable name="firstMin" type="Integer" />
         <variable name="firstMax" type="Integer" />
         <variable name="secondMin" type="Integer" />
         <variable name="secondMax" type="Integer" />
         <variable name="hasSecondRange" type="Boolean" />
 
-        <import type="android.view.View" />
     </data>
 
     <LinearLayout
